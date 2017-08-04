@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  
+<html>  
+<head>  
+<title>Confirm Before Leave</title>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<script language="javascript">
+var MSG_UNLOAD="如果你此时离开，所做操作信息将全部丢失，是否离开?";
+var UnloadConfirm = {};
+//启用监听浏览器刷新、关闭的方法
+UnloadConfirm.set = function(confirm_msg){
+  window.onbeforeunload = function(event){
+    event = event || window.event;
+    event.returnValue = confirm_msg;
+    if(confirm('您确定要关闭本页面?'))
+		 {
+		  alert("aaaa");
+		  }
+		  else
+		  {
+		  alert("bbbb");
+		  }
+  }
+}
+//关闭监听浏览器刷新、关闭的方法
+UnloadConfirm.clear = function(){
+  window.onbeforeunload = function(){};
+}
+UnloadConfirm.set(MSG_UNLOAD);
+</script> 
+</head>  
+<body>
+<a href="http://www.baidu.com">baidu</a>  
+</body>  
+</html>
+
